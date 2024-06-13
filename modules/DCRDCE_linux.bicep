@@ -111,8 +111,10 @@ resource DCRLinux 'Microsoft.Insights/dataCollectionRules@2021-09-01-preview' = 
           'Microsoft-Syslog'
         ]
         destinations: [
-          'azureMonitorMetrics-default'
+          LawName
         ]
+        transformKql: 'source'
+        outputStream: 'Microsoft-Syslog'
       }
     ]
     dataSources: {
@@ -163,9 +165,6 @@ resource DCRLinux 'Microsoft.Insights/dataCollectionRules@2021-09-01-preview' = 
     }
     // description: 'string'
     destinations: {
-      azureMonitorMetrics: {
-        name: 'azureMonitorMetrics-default'
-      }
       logAnalytics: [
         {
           name: LawName
